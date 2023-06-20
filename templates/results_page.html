@@ -3,8 +3,32 @@
 <head>
     <title>TimeSpentTogether - Results</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #fde2e6;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, #f9a5c6, #ffc3a0);
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ff85a2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
         }
 
         .container {
@@ -14,29 +38,36 @@
             height: 100vh;
         }
 
-        .result-box {
+        .result-card {
             width: 400px;
-            padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 30px;
         }
 
-        .result-box h2 {
+        .result-card h2 {
             text-align: center;
-            color: #ff69b4;
+            color: #ff85a2;
+            margin: 0 0 20px;
+            font-size: 24px;
         }
 
-        .result-box p {
+        .result-card p {
             margin-bottom: 10px;
-            color: #888;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <div class="banner">
+        <h1>TimeSpentTogether</h1>
+    </div>
     <div class="container">
-        <div class="result-box">
-            <h2>TimeSpentTogether - Results</h2>
+        <div class="result-card">
+            <h2>Your Time Spent Together!</h2>
             <p>When you will have spent more time with your partner than without: {{ user_more_time_together_date }}</p>
             <p>When your partner will have spent more time with you than without: {{ partner_more_time_together_date }}</p>
             <p>Your percentage of time spent together: {{ user_percent_time_spent_together }}%</p>
@@ -45,6 +76,3 @@
     </div>
 </body>
 </html>
-
-
-

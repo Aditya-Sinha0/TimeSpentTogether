@@ -3,121 +3,159 @@
 <head>
     <title>TimeSpentTogether</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f9e3e7;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-image: linear-gradient(to bottom, #f9a5c6, #ffc3a0);
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ff85a2;
+            padding: 20px;
+            text-align: center;
+            z-index: 1000; /* Add a higher z-index value */
+        }
+
+        .banner h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        .blurb {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: fixed;
+            top: 80px; /* Adjust the top position based on the banner height and padding */
+            left: 0;
+            width: 100%;
+            display: none; /* Initially hide the blurb */
+            z-index: 999; /* Make sure the blurb appears below the banner */
+        }
+
+        .blurb h2 {
+            font-size: 24px;
+            color: #ff85a2;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .blurb p {
+            font-size: 16px;
+            color: #333;
+            margin: 0;
         }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: calc(100vh - 80px); /* Subtract banner height and padding */
+            padding-top: 80px; /* Adjust the top padding */
         }
 
-        .form {
-            width: 350px;
-            padding: 30px;
+        .card {
+            width: 400px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 30px;
         }
 
-        .form h2 {
-            text-align: center;
-            color: #ff7eb6;
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-
-        .form .form-group {
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .form .form-group label {
+        .form-group label {
             display: block;
-            margin-bottom: 5px;
-            color: #888;
+            margin-bottom: 10px;
+            color: #333;
             font-size: 14px;
+            font-weight: bold;
         }
 
-        .form .form-group input[type="date"] {
+        .form-group input[type="date"] {
             width: 100%;
             padding: 10px;
-            border-radius: 5px;
             border: 1px solid #ddd;
+            border-radius: 5px;
             font-size: 14px;
         }
 
-        .form .form-group button {
+        .form-group button {
             width: 100%;
             padding: 10px;
             border: none;
-            background-color: #ff7eb6;
+            background-color: #ff85a2;
             color: #fff;
-            cursor: pointer;
             font-size: 16px;
+            font-weight: bold;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .form .form-group button:hover {
-            background-color: #ff63a2;
-        }
-
-        .heart-decoration {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-        }
-
-        .heart-decoration::before,
-        .heart-decoration::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 35px;
-            height: 40px;
-            border-radius: 50px 50px 0 50px;
-            background: #ff7eb6;
-        }
-
-        .heart-decoration::before {
-            left: -25px;
-            transform: rotate(-45deg);
-        }
-
-        .heart-decoration::after {
-            left: 0;
-            transform: rotate(45deg);
+        .form-group button:hover {
+            background-color: #ff6381;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="form">
-            <h2>TimeSpentTogether</h2>
-            <form method="POST" action="{{ url_for('calculate') }}">
-                <div class="form-group">
-                    <label for="birthday">Your birthday</label>
-                    <input type="date" id="user_birthday" name="user_birthday" required>
-                </div>
-                <div class="form-group">
-                    <label for="partner_birthday">Partner's birthday</label>
-                    <input type="date" id="partner_birthday" name="partner_birthday" required>
-                </div>
-                <div class="form-group">
-                    <label for="connection_date">Connection date</label>
-                    <input type="date" id="connection_date" name="connection_date" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Calculate</button>
-                </div>
-            </form>
-        </div>
-        <div class="heart-decoration"></div>
+    <div class="banner">
+        <h1>TimeSpentTogether</h1>
     </div>
+    <div class="blurb">
+        <h2>Calculate Your Time Spent Together</h2>
+        <p>Discover meaningful milestones in your relationship. Enter your and your partner's birthdates and your connection date to find out when you will have spent more time together than apart.</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="form">
+                <form method="POST" action="{{ url_for('calculate') }}">
+                    <div class="form-group">
+                        <label for="birthday">Your birthday</label>
+                        <input type="date" id="user_birthday" name="user_birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_birthday">Partner's birthday</label>
+                        <input type="date" id="partner_birthday" name="partner_birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="connection_date">Connection date</label>
+                        <input type="date" id="connection_date" name="connection_date" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var bannerHeight = document.querySelector('.banner').clientHeight;
+            var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            var blurb = document.querySelector('.blurb');
+
+            if (scrollPosition === 0) {
+                blurb.style.display = 'block';
+            } else {
+                blurb.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
