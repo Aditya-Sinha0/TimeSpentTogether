@@ -17,9 +17,13 @@ def calculate():
     user_more_time_together_date = get_more_time_together_date(user_birthday, connection_date)
     partner_more_time_together_date = get_more_time_together_date(partner_birthday, connection_date)
 
-    return "When you will have spent more time with your partner than without: " + str(
-        user_more_time_together_date) + ". When your partner will have spent more time with you than without: " + str(
-        partner_more_time_together_date)
+    user_percent_time_spent_together = percent_time_spent_together(user_birthday, connection_date)
+    partner_percent_more_time_together_date = percent_time_spent_together(partner_birthday, connection_date)
+
+    return render_template('results_page.html', user_more_time_together_date=user_more_time_together_date,
+                           partner_more_time_together_date=partner_more_time_together_date, user_percent_time_spent_together=user_percent_time_spent_together,
+                           partner_percent_time_spent_together=partner_percent_more_time_together_date)
+
 
 
 if __name__ == '__main__':

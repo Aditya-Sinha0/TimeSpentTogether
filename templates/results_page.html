@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TimeSpentTogether - Results</title>
+    <style>
+        body {
+            background-color: #fde2e6;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result-box {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box h2 {
+            text-align: center;
+            color: #ff69b4;
+        }
+
+        .result-box p {
+            margin-bottom: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-box">
+            <h2>TimeSpentTogether - Results</h2>
+            <p>When you will have spent more time with your partner than without: {{ user_more_time_together_date }}</p>
+            <p>When your partner will have spent more time with you than without: {{ partner_more_time_together_date }}</p>
+            <p>Your percentage of time spent together: {{ user_percent_time_spent_together }}%</p>
+            <p>Your partner's percentage of time spent together: {{ partner_percent_time_spent_together }}%</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
