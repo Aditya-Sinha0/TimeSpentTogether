@@ -4,7 +4,10 @@
     <title>TimeSpentTogether</title>
     <style>
         body {
-            background-color: #fde2e6;
+            background-color: #f9e3e7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -15,8 +18,8 @@
         }
 
         .form {
-            width: 300px;
-            padding: 20px;
+            width: 350px;
+            padding: 30px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -24,33 +27,71 @@
 
         .form h2 {
             text-align: center;
-            color: #ff69b4;
+            color: #ff7eb6;
+            font-size: 24px;
+            margin-bottom: 30px;
         }
 
         .form .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form .form-group label {
             display: block;
             margin-bottom: 5px;
             color: #888;
+            font-size: 14px;
         }
 
-        .form .form-group input {
+        .form .form-group input[type="date"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            font-size: 14px;
         }
 
         .form .form-group button {
             width: 100%;
             padding: 10px;
             border: none;
-            background-color: #ff69b4;
+            background-color: #ff7eb6;
             color: #fff;
             cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form .form-group button:hover {
+            background-color: #ff63a2;
+        }
+
+        .heart-decoration {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+
+        .heart-decoration::before,
+        .heart-decoration::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 35px;
+            height: 40px;
+            border-radius: 50px 50px 0 50px;
+            background: #ff7eb6;
+        }
+
+        .heart-decoration::before {
+            left: -25px;
+            transform: rotate(-45deg);
+        }
+
+        .heart-decoration::after {
+            left: 0;
+            transform: rotate(45deg);
         }
     </style>
 </head>
@@ -76,6 +117,7 @@
                 </div>
             </form>
         </div>
+        <div class="heart-decoration"></div>
     </div>
 </body>
 </html>
