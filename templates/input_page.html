@@ -61,7 +61,11 @@
             <form method="POST" action="{{ url_for('calculate') }}">
                 <div class="form-group">
                     <label for="birthday">Your birthday</label>
-                    <input type="date" id="birthday" name="birthday" required>
+                    <input type="date" id="user_birthday" name="user_birthday" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner_birthday">Partner's birthday</label>
+                    <input type="date" id="partner_birthday" name="partner_birthday" required>
                 </div>
                 <div class="form-group">
                     <label for="connection_date">Connection date</label>
